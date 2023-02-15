@@ -1,7 +1,21 @@
 <%- include('./partials/head') %>
 
 <main>
-  
+  <section>
+    <article>
+      <a href="/?squad=squad-a-2022">Squad a</a>
+      <a href="/?squad=squad-b-2022">Squad b</a>
+      <a href="/?squad=squat-c-2022">Squad c</a>
+    </article>
+
+    <% if (squad) { %> 
+      <% squad.members.forEach(member => { %>
+      <article>
+        <%= member.name %>
+      </article>
+    <% })} %>
+  </section>
+  <h1></h1>
 </main>
 
 <%- include('./partials/foot') %>
