@@ -11,7 +11,7 @@ app.set("views", "./views");
 app.use(express.static("public"));
 
 app.get("/",  (req, res) => {
-  res.render("index")
+  res.render("landing")
 })
 
 app.get("/FDND-overzicht", async (req, res) => {
