@@ -1,17 +1,23 @@
 <%- include('./partials/head') %>
 
+<header>
+  <h1>Squad Page</h1>
+</header>
 <main>
-  <section>
-    <article>
-      <a href="/?squad=squad-a-2022">Squad a</a>
-      <a href="/?squad=squad-b-2022">Squad b</a>
-      <a href="/?squad=squat-c-2022">Squad c</a>
-    </article>
+  <h2>Bladeren</h2>
+  <nav>
+    <a href="/?squad=squad-a-2022">Squad a</a>
+    <a href="/?squad=squad-b-2022">Squad b</a>
+    <a href="/?squad=squat-c-2022">Squad c</a>
+    <a href="/?squad=founders-2021">Founders</a>
+  </nav>
 
+  <hr class="divider"></hr>
+  <section class="cards-container">
     <% if (squad) { %> 
       <% squad.members.forEach(member => { %>
-      <article>
-        <%= member.name %>
+      <article class="card">
+        <h3><%= member.name %></h3>
       </article>
     <% })} %>
   </section>

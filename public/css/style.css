@@ -1,0 +1,85 @@
+:root {
+  /* Important Colors */
+  --primary-purple: #772ce8;
+  --white: #ffffff;
+  --dark-grey: #30343f;
+
+  /* Light Mode */
+  --main-light-color: #f7f7f8;
+
+
+  /* Dark Mode */
+  --main-dark-color: #28282f;
+  --content-dark-color: #393939;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* General */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 100%/1.4 "Open Sans", sans-serif;
+  background-color: var(--main-light-color);
+}
+nav {
+    display: flex;
+    justify-content: center;;
+    flex-direction: columns;
+    flex-wrap: wrap;
+
+    margin-bottom: 1em;
+}
+
+nav a {
+    display: flex;
+    border-radius: 0.3em;
+    color: var(--white);
+    margin: 1em;
+    height: 3.5em;
+    width: 6.5em;
+    background-color: var(--primary-purple);
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    padding: 2px 2px;
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 0.3em;
+    background-color: var(--dark-grey);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  padding-bottom: 1em;
+  gap: 0.5em;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 15em;
+    margin: 1em auto 0 auto;
+    border-radius: 0.3em;
+    background: var(--dark-grey);
+    padding: 0.7em;
+    gap: 1em;
+
+    color: var(--white);
+    
+}
