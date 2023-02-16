@@ -6,46 +6,46 @@
 <main>
   <h2>Bladeren</h2>
   <nav>
-    <a href="/?squad=squad-a-2022">Squad A</a>
-    <a href="/?squad=squad-b-2022">Squad B</a>
-    <a href="/?squad=squat-c-2022">Squat C</a>
-    <a href="/?squad=founders-2021">Founders</a>
+    <a href="/FDND-overzicht/?squad=squad-a-2022">Squad A</a>
+    <a href="/FDND-overzicht/?squad=squad-b-2022">Squad B</a>
+    <a href="/FDND-overzicht/?squad=squat-c-2022">Squat C</a>
+    <a href="/FDND-overzicht/?squad=founders-2021">Founders</a>
   </nav>
 
-  <hr class="divider"></hr>
-
-  <section class="filter-section"> 
+  <hr class="divider" />
+  
+  <section class="filter-section">
     <p class="filter">Filter op tag</p>
     <p class="sort">Sorteren op</p>
   </section>
 
   <section class="cards-container">
     <!-- Check if squad exists -->
-    <% if (squad) { %> 
-      <!-- Iterate through squad.members, make a new article for each member -->
-      <% squad.members.forEach(member => { %>
-      <article class="card">
-        <div class="image-container">
-          <% 
+    <% if (squad) { %>
+    <!-- Iterate through squad.members, make a new article for each member -->
+    <% squad.members.forEach(member => { %>
+    <article class="card">
+      <div class="image-container">
+        <% 
             const avatarSrc = member.avatar
             if (avatarSrc !== "null" && avatarSrc) {
           %>
-          <img class="card-image" src="<%- member.avatar %>" alt="Avatar van <%= member.name %>">
-          <% } else { %>
-          <img class="card-image" src="./assets/venting.png" alt="Een verdacht poppetje in een schacht">
-          <% } %>
+        <img class="card-image" src="<%- member.avatar %>" alt="Avatar van <%= member.name %>">
+        <% } else { %>
+        <img class="card-image" src="./assets/venting.png" alt="Een verdacht poppetje in een schacht">
+        <% } %>
+      </div>
+
+      <div class="info-area">
+        <h3><%= member.name + " " + member.prefix + " " + member.surname %></h3>
+        <div class="tags">
+          <a class="tag" href="<%= member.website %>" target="_blank">Website</a>
         </div>
-        
-        <div class="info-area">
-          <h3><%= member.name + " " + member.prefix + " " + member.surname %></h3>
-          <div class="tags">
-            <a class="tag" href="<%= member.website %>" target="_blank">Website</a>
-          </div>
-        </div>
-      </article>
+      </div>
+    </article>
     <% })} %>
+
   </section>
-  <h1></h1>
 </main>
 
 <%- include('./partials/foot') %>

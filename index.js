@@ -10,7 +10,11 @@ app.set("views", "./views");
 
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
+app.get("/",  (req, res) => {
+  res.render("index")
+})
+
+app.get("/FDND-overzicht", async (req, res) => {
   let slug = req.query.squad || "squad-a-2022";
   let squadUrl = url + slug;
 
