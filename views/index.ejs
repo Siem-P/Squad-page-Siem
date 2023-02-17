@@ -27,18 +27,18 @@
     <article class="card">
       <div class="image-container">
         <% 
-            const avatarSrc = member.avatar
-            if (avatarSrc !== "null" && avatarSrc) {
+            const avatarSrc = member?.avatar // Let op '?''
+            if (avatarSrc && avatarSrc !== 'null') {
           %>
         <img class="card-image" src="<%- member.avatar %>" alt="Avatar van <%= member.name %>">
         <% } else { %>
-        <img class="card-image" src="/assets/venting.png" alt="Een verdacht poppetje in een schacht">
+        <img class="card-image" src="/assets/sussybaka.png" alt="Een verdacht poppetje in een schacht">
         <% } %>
       </div>
 
       <div class="info-area">
-        <h3><%= member.name + " " + member.prefix + " " + member.surname %></h3>
-        <div class="tags">
+        <h3><%= member.name + " " + (member.prefix ?? '') + " " + member.surname %></h3>
+        <div class="tags"> 
           <a class="tag" href="<%= member.website %>" target="_blank">Website</a>
         </div>
       </div>

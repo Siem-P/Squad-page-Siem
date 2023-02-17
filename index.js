@@ -2,6 +2,7 @@
 import express from "express";
 
 const url = "https://whois.fdnd.nl/api/v1/squad/";
+
 // Maak een nieuwe express app aan
 const app = express();
 
