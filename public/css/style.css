@@ -12,7 +12,7 @@
   --main-dark-color: #28282f;
   --content-dark-color: #393939;
   --dark-tag-color: #212123;
-  --dark-tag-text-color: #;
+  /* --dark-tag-text-color: #; */
 }
 
 /* Reset */
@@ -87,6 +87,7 @@ nav a {
 
 .tags {
   margin-top: 0.5em;
+	display: flex;
 }
 
 .tag {
@@ -95,6 +96,10 @@ nav a {
   border-radius: 0.8em;
   color: #464646;
   font-weight: bold;
+  margin-right: 0.4em;
+	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .card {
@@ -108,7 +113,7 @@ nav a {
   gap: 1em;
 
   color: var(--content-dark-color);
-  transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 }
 
 .card:hover {
@@ -128,4 +133,14 @@ nav a {
   max-width: 19em;
   max-height: 19em;
   aspect-ratio: 1/1;
+}
+
+.colour-circle {
+    background-color: var(--card-circle-colour);
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+
+    /* align-items: center; */
+    
 }

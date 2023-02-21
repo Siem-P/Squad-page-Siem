@@ -10,6 +10,7 @@
     <a href="/FDND-overzicht/?squad=squad-b-2022">Squad B</a>
     <a href="/FDND-overzicht/?squad=squat-c-2022">Squat C</a>
     <a href="/FDND-overzicht/?squad=founders-2021">Founders</a>
+    
   </nav>
 
   <hr class="divider" />
@@ -26,8 +27,9 @@
     <% squad.members.forEach(member => { %>
     <article class="card">
       <div class="image-container">
+        <div class="colour-circle" ></div>
         <% 
-            const avatarSrc = member?.avatar // Let op '?''
+            const avatarSrc = member?.avatar // If there is a value for avatar, use it. Otherwise stay empty.
             if (avatarSrc && avatarSrc !== 'null') {
           %>
         <img class="card-image" src="<%- member.avatar %>" alt="Avatar van <%= member.name %>">
@@ -40,6 +42,12 @@
         <h3><%= member.name + " " + (member.prefix ?? '') + " " + member.surname %></h3>
         <div class="tags"> 
           <a class="tag" href="<%= member.website %>" target="_blank">Website</a>
+          <% if(!member.colour?.hex) {%>
+          <% } else { %>
+          <a class="tag" href="#">
+            <p class="colour-circle" style="--card-circle-colour:<%= member.colour?.hex%>"></p>
+          </a>
+          <% } %>
         </div>
       </div>
     </article>
