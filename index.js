@@ -10,24 +10,23 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 app.use(express.static("public"));
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/",  (req, res) => {
-  res.render("landing")
-})
+app.get("/", (req, res) => {
+  res.render("landing");
+});
 
 app.get("/FDND-overzicht", async (req, res) => {
   let slug = req.query.squad || "squat-c-2022";
   let squadUrl = url + slug;
+  const pageTitle = req.query.squad || "squat-c-2022";
 
-	console.log(slug)
-	const pageTitle = req.path + "?squad=" + slug
+  const data = await fetchApi(squadUrl);
+  data.pageTitle = pageTitle
 
-	const data = await fetchApi(squadUrl)
-  
-  res.render('index', { data, pageTitle })
-})
+  res.render("index", data);
+});
 
 app.set("port", process.env.PORT || 8000);
 
@@ -36,9 +35,9 @@ app.listen(app.get("port"), function () {
 });
 
 async function fetchApi(url) {
-	const data = await fetch(url)
-			.then((response) => response.json())
-			.catch((error) => error)
+  const data = await fetch(url)
+    .then((response) => response.json())
+    .catch((error) => error);
 
-	return data
+  return data;
 }

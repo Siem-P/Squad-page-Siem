@@ -1,16 +1,35 @@
 <%- include('./partials/head') %>
 
 <header>
-  <h1>Squad Page</h1>
+  <h1><%= pageTitle %></h1>
 </header>
 <main>
   <h2>Bladeren</h2>
   <nav>
-    <a href="/FDND-overzicht/?squad=squad-a-2022">Squad A</a>
-    <a href="/FDND-overzicht/?squad=squad-b-2022">Squad B</a>
-    <a href="/FDND-overzicht/?squad=squat-c-2022">Squat C</a>
-    <a href="/FDND-overzicht/?squad=founders-2021">Founders</a>
+    <% if (pageTitle === "squad-a-2022") { %>
+      <a href="/FDND-overzicht/?squad=squad-a-2022" class="nav-link active">Squad A</a>
+    <% } else { %>
+      <a href="/FDND-overzicht/?squad=squad-a-2022" class="nav-link">Squad A</a>
+    <% } %>
     
+    <% if (pageTitle === "squad-b-2022") { %>
+      <a href="/FDND-overzicht/?squad=squad-b-2022" class="nav-link active">Squad B</a>
+    <% } else { %>
+      <a href="/FDND-overzicht/?squad=squad-b-2022" class="nav-link">Squad B</a>
+    <% } %>
+
+    <% if (pageTitle === "squat-c-2022") { %>
+      
+      <a href="/FDND-overzicht/?squad=squat-c-2022" class="nav-link active">Squat C</a>
+    <% } else { %>
+      <a href="/FDND-overzicht/?squad=squat-c-2022" class="nav-link">Squad C</a>
+    <% } %>
+
+    <% if (pageTitle === "founders-2021") { %>
+      <a href="/FDND-overzicht/?squad=founders-2021" class="nav-link active">Founders</a>
+    <% } else { %>
+      <a href="/FDND-overzicht/?squad=founders-2021" class="nav-link">Founders</a>
+    <% } %>
   </nav>
 
   <hr class="divider" />
@@ -51,7 +70,9 @@
         </div>
       </div>
     </article>
-    <% })} %>
+    <% })} else {
+      return 
+    } %>
 
   </section>
 </main>

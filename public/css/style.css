@@ -4,6 +4,10 @@
   --white: #ffffff;
   --dark-grey: #30343f;
 
+  /* Hover / Active color - Button */
+  --purple-button-effect: #8947EB;
+
+
   /* Light Mode */
   --main-light-color: #f7f7f8;
   --tag-color: #eaeaeb;
@@ -46,7 +50,7 @@ nav {
   margin-bottom: 1em;
 }
 
-nav a {
+nav .nav-link {
   display: flex;
   border-radius: 0.3em;
   color: var(--white);
@@ -56,7 +60,23 @@ nav a {
   background-color: var(--primary-purple);
   align-items: center;
   justify-content: center;
+  transition: ease 0.2s;
 }
+
+nav .nav-link:hover, .nav-link:focus, .nav-link:active {
+  transition: ease-in-out .2s;
+  transform: translateY(-0.25em);
+  background-color: var(--purple-button-effect);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--primary-purple);
+}
+
+.active {
+  background-color: var(--purple-button-effect);
+  transform: translateY(-0.25em);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--primary-purple);
+}
+
+
 
 .divider {
   height: 0.4em;
