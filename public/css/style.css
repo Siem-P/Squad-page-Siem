@@ -49,8 +49,9 @@ header {
   position: sticky;
 }
 
-header > * {
+header h1 {
   color: var(--main-light-color);
+	padding-left: 1em;
 }
 
 
