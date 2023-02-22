@@ -26,8 +26,9 @@
   box-sizing: border-box;
 }
 
-a {
+a, li {
   text-decoration: none;
+  list-style-type: none;
 }
 
 /* General */
@@ -49,22 +50,29 @@ header {
   position: sticky;
 }
 
-header h1 {
-  color: var(--main-light-color);
-	padding-left: 1em;
+nav h1 {
+  color: var(--content-dark-color);
+	/* padding-left: 1em; */
 }
-
-
 
 
 /* Squad-nav */
 nav {
   display: flex;
+  flex-direction: column;;
   justify-content: center;
-  flex-direction: columns;
-  flex-wrap: wrap;
-
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  margin-top: 2em;
   margin-bottom: 1em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-between;
 }
 
 nav .nav-link {
