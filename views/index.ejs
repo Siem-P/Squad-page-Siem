@@ -1,52 +1,53 @@
 <%- include('./partials/head') %>
 
 <header>
-
+  <a href="/"><h1>FDND Overzicht</h1></a>
 </header>
 <main>
-
   <nav>
     <h1>Bladeren</h1>
     <ul>
       <li>
+        <!-- Check if page title is equal to the pageTitle rendered by index.js -->
+        <!-- Then, add a new class for the active page -->
         <% if (pageTitle === "squad-a-2022") { %>
-        <a href="/FDND-overzicht/?squad=squad-a-2022" class="nav-link active">Squad A</a>
+        <a href="?squad=squad-a-2022" class="nav-link active">Squad A</a>
         <% } else { %>
-        <a href="/FDND-overzicht/?squad=squad-a-2022" class="nav-link">Squad A</a>
+        <a href="?squad=squad-a-2022" class="nav-link">Squad A</a>
         <% } %>
       </li>
       <li>
         <% if (pageTitle === "squad-b-2022") { %>
-        <a href="/FDND-overzicht/?squad=squad-b-2022" class="nav-link active">Squad B</a>
+        <a href="?squad=squad-b-2022" class="nav-link active">Squad B</a>
         <% } else { %>
-        <a href="/FDND-overzicht/?squad=squad-b-2022" class="nav-link">Squad B</a>
+        <a href="?squad=squad-b-2022" class="nav-link">Squad B</a>
         <% } %></li>
       <li>
         <% if (pageTitle === "squat-c-2022") { %>
-        <a href="/FDND-overzicht/?squad=squat-c-2022" class="nav-link active">Squat C</a>
+        <a href="?squad=squat-c-2022" class="nav-link active">Squat C</a>
         <% } else { %>
-        <a href="/FDND-overzicht/?squad=squat-c-2022" class="nav-link">Squat C</a>
+        <a href="?squad=squat-c-2022" class="nav-link">Squat C</a>
         <% } %>
       </li>
       <li>
         <% if (pageTitle === "founders-2021") { %>
-        <a href="/FDND-overzicht/?squad=founders-2021" class="nav-link active">Founders</a>
+        <a href="?squad=founders-2021" class="nav-link active">Founders</a>
         <% } else { %>
-        <a href="/FDND-overzicht/?squad=founders-2021" class="nav-link">Founders</a>
+        <a href="?squad=founders-2021" class="nav-link">Founders</a>
         <% } %>
       </li>
-
-
-
-
-
     </ul>
   </nav>
 
-  <hr class="divider" />
+  <hr class="divider">
 
   <section class="filter-section">
     <p class="filter">Filter op tag</p>
+    <form action="/" method="get">
+      <label> Zoekbalk
+        <input type="search" name="searchBar" id="searchBar">
+      </label>
+    </form>
     <p class="sort">Sorteren op</p>
   </section>
 
@@ -58,16 +59,17 @@
     <article class="card">
       <div class="image-container">
         <div class="colour-circle"></div>
-        <% 
-            const avatarSrc = member?.avatar // If there is a value for avatar, use it. Otherwise stay empty.
-            if (avatarSrc && avatarSrc !== 'null') {
-          %>
+        <% // Check if avatar exists ->
+          const avatarSrc = member?.avatar // If there is a value for avatar, use it. Otherwise stay empty.
+          if (avatarSrc && avatarSrc !== 'null') {
+        %>
         <img class="card-image" src="<%- member.avatar %>" alt="Avatar van <%= member.name %>">
         <% } else { %>
         <img class="card-image" src="/assets/sussybaka.png" alt="Een verdacht poppetje in een schacht">
-        <% } %>
+        <% } %> 
       </div>
 
+      
       <div class="info-area">
         <h3><%= member.name + " " + (member.prefix ?? '') + " " + member.surname %></h3>
         <div class="tags">
@@ -82,9 +84,8 @@
       </div>
     </article>
     <% })} else {
-      return 
+     return
     } %>
-
   </section>
 </main>
 

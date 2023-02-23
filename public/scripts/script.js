@@ -1,17 +1,20 @@
-// const api_url = "https://whois.fdnd.nl/api/v1/members";
+let squadMembers = null;
 
-// async function getAPI(url){
-
-//   const response = await fetch(url);
-
-//   let data = await response.json();
-//   console.log(data);
-  
-//   console.log(data.members[9]);
-//   console.log(data.members[9].name);
-//   }
-
-// getAPI(api_url);
-
-
-
+const searchBar = document.getElementById('searchBar');
+searchBar.addEventListener('keyup', search)
+squadMembers = document.querySelectorAll('.cards-container > .card')
+console.log(squadMembers)
+function search() {
+    
+    const searchValue = this.value.toLowerCase()
+    if(this.value === '') {
+      squadMembers.forEach(member => {
+        console.log(member)
+        member.hidden = false;
+      })
+    } else {
+      squadMembers.forEach(member => {
+        member.hidden = !member.textContent.toLowerCase().includes(searchValue);
+      })
+    }
+}
