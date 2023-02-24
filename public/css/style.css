@@ -50,9 +50,21 @@ header {
   position: sticky;
 }
 
-nav h1 {
+header h1 {
+  /* padding: 1em; */
+  margin-left: 0.5em;
+  color: var(--main-light-color);
+  transition: ease .1s;
+}
+
+header h1:hover {
+  color: var(--primary-purple);
+}
+
+nav h2 {
+  margin-top: 1em;
+  font-size: 2em;
   color: var(--content-dark-color);
-	/* padding-left: 1em; */
 }
 
 
@@ -70,12 +82,13 @@ nav {
 }
 
 nav ul {
+  width: 100%;
   display: flex;
   flex-flow: row no-wrap;
   justify-content: space-between;
 }
 
-nav .nav-link {
+.nav-link {
   display: flex;
   border-radius: 0.3em;
   color: var(--white);
@@ -87,19 +100,20 @@ nav .nav-link {
   justify-content: center;
   transition: ease 0.2s;
 }
+.active {
+  background-color: var(--purple-button-effect);
+  transform: translateY(-0.25em);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--primary-purple);
+}
 
-nav .nav-link:hover, .nav-link:focus, .nav-link:active {
+.nav-link:hover, .nav-link:focus, .nav-link:active {
   transition: ease-in-out .2s;
   transform: translateY(-0.25em);
   background-color: var(--purple-button-effect);
   box-shadow: 0 0.5em 0.5em -0.4em var(--primary-purple);
 }
 
-.active {
-  background-color: var(--purple-button-effect);
-  transform: translateY(-0.25em);
-  box-shadow: 0 0.5em 0.5em -0.4em var(--primary-purple);
-}
+
 
 
 .divider {
@@ -160,6 +174,9 @@ nav .nav-link:hover, .nav-link:focus, .nav-link:active {
 
   color: var(--content-dark-color);
   transition: ease-in-out 0.2s;
+}
+.card[hidden] {
+  display: none;
 }
 
 .card:hover {

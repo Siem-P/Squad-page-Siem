@@ -1,11 +1,11 @@
 let squadMembers = null;
 
 const searchBar = document.getElementById('searchBar');
-searchBar.addEventListener('keyup', search)
+searchBar.addEventListener('input', search)
 
 // Select all elements for checking search value with.
 squadMembers = document.querySelectorAll('.cards-container > .card')
-
+console.log(squadMembers)
 // Function for searching a member
 function search() {
     const searchValue = this.value.toLowerCase() // set the value to lower case
